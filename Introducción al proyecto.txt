@@ -1,0 +1,66 @@
+Realizar un sistema para la gestion de Proyectos de Software.
+
+Cada proyecto tiene:
+    - Numero de proyecto
+    - Titulo
+    - Fecha de Actualizacion
+        Formato dd-mm-yy
+        Entre 2000 y 2022
+    - Lenguajes Utilizados
+        0:  Python
+        1:  Java
+        2:  C++
+        3:  Javascript
+        4:  Shell
+        5:  HTML
+        6:  Ruby
+        7:  Swift
+        8:  C#
+        9:  VB
+        10: Go
+    - Cantida de Lineas de Codigo
+
+MODULOS
+    Modulo 1:
+        Clase del Registro y funciones Basicas para manejar un Registro
+    Modulo 2: 
+        Programa principal contralo por menu
+
+Opcion 1: CARGAR Proyectos
+    Generar n proyectos de Software cargados en un arreglo de registros
+
+Opcion 2: LISTAR PROYECTOS
+    Mostrar todos los proyectos contenidos en el arreglo. Ordenados alfabeticamente
+
+Opcion 3: ACTUALIZAR PROYECTO
+    Buscar si existe un proyecto con un valor x ingresado por teclado.
+    SI existe se debe permitir modificar su cantidad de lineas y su fecha de actualizacion
+    Si no existe debe indicar un mensaje
+
+Opcion 4: RESUMEN POR LENGUAJES
+    Mostrar cantidad de lineas por lenguaje 
+    Mostrar resultados por lenguaje
+
+Opcion 5: RESUMEN POR AÑO
+    Calcular la cantida de proyectos por año de actualizacion
+    Mostrar los años que solo tengan algun proyecto
+
+Opcion 6: FILTRAR LENGUAJE
+    Mostrar proyectos de software ordenados por numero de proyecto de manera ascendente
+
+Opcion 7: PRODUCTIVIDAD
+    Segun el resultado del punto 5, determinar el año con mayor cantidad de proyectos actualizados, considerando mostrar todos los años si fuera más de uno con dicha cantidad.
+
+Cargar registros en una lista
+
+class Estudiante:
+    def __init__(self, leg, nom, pro):
+        self.legajo = leg
+        self.nombre = nom
+        self.promedio = pro
+
+for i in range(n):
+    leg = int(input('Legajo: '))
+    nom = input('Nombre: ')
+    pro = float(input('Promedio: '))
+    v[i] = Estudiante(leg, nom, pro)
