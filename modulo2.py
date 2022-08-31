@@ -3,21 +3,23 @@ from main import *
 
 class Proyecto:
 
-    def __init__(self, num, tit, actualizacion, lenguaje):
+    def __init__(self, num, tit, actualizacion, lenguaje,lineas):
         self.numero = num
         self.titulo = tit
         self.actualizacion = actualizacion
         self.lenguaje = lenguaje
+        self.lineas = lineas
 
 def cargar_proyecto():
     num = int(input("Indicar numero de proyecto: "))
     tit = str(input("Indicar Titulo de proyecto: "))
     dd_actu = str(input("Ingrese el dia de actualizacion (Formato dd): "))
-    mm_actu = str(input("Ingrse el mes de actualizacion (Formato mm): ")) 
+    mm_actu = str(input("Ingrese el mes de actualizacion (Formato mm): ")) 
     yy_actu = str(input("Ingrese el año de actualizacion (Formato yyyy): "))
     fecha_actu = str(f"{dd_actu}-{mm_actu}-{yy_actu}")
-    lenguaje = int(input("Ingrese el lenguaje utilizado: \n0:  Python  -   1:  Java\n2:  C++    -   3:  Javascript\n4:  Shell   -   5:  HTML\n6:  Ruby    -   7:  Swift\n8:  C#      -   9:  VB\n10: Go "))
-    nuevo_proyecto = Proyecto(num, tit, fecha_actu, lenguaje)
+    lenguaje = int(input("0:  Python  -   1:  Java\n2:  C++    -   3:  Javascript\n4:  Shell   -   5:  HTML\n6:  Ruby    -   7:  Swift\n8:  C#      -   9:  VB\n10: Go\nIngrese el lenguaje utilizado: "))
+    lineas = int(input("Ingrese la cantidad de lineas de codigo: "))
+    nuevo_proyecto = Proyecto(num, tit, fecha_actu, lenguaje, lineas)
     print("¡PROYECTO CARGADO!\n")
     return nuevo_proyecto
 
@@ -42,3 +44,11 @@ def selec_op():
         op = int(input("Seleccione una opcion valida: "))
     return op
 
+def ordenamiento_ss(proyectos):
+    long= len(proyectos)
+
+    for i in range(long-1):
+        for j in range(i+1, long):
+            if proyectos[i].numero > proyectos[j].numero:
+                # Intercambiar
+                proyectos[i].numero, proyectos[j].numero = proyectos[j].numero, proyectos[i].numero

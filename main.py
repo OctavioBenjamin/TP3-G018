@@ -1,7 +1,6 @@
 import random
 from modulo2 import *
 
-
 def main():
 
     opcion = -1
@@ -9,6 +8,7 @@ def main():
     while opcion != 0:
         menu()
         opcion = selec_op()
+
         if opcion == 1:
 
             if listaCreada:
@@ -17,7 +17,6 @@ def main():
                 for i in range(n):
                     nuevo_proyecto = cargar_proyecto()
                     proyectos.append(nuevo_proyecto)
-
             else:
                 n = int(input("Indique la cantidad de proyectos a cargar: "))
                 
@@ -31,7 +30,14 @@ def main():
             opcion = -1
 
         elif opcion == 2:
-            
+            if listaCreada == False:
+                print("ERROR: No se han encontrado proyectos cargados")
+            else:
+                ordenamiento_ss(proyectos)
+                for i in range(len(proyectos)):
+                    print(f"Proyecto {proyectos[i].nombre} Numero: {proyectos[i].numero}")
+                
+            opcion = -1
 
 if __name__ == "__main__":
     main()
