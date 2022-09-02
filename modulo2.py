@@ -56,7 +56,7 @@ def ordenamiento_ss_num(proyectos):
         for j in range(i+1, long):
             if proyectos[i].numero > proyectos[j].numero:
                 # Intercambiar
-                proyectos[i].numero, proyectos[j].numero = proyectos[j].numero, proyectos[i].numero
+                proyectos[i], proyectos[j] = proyectos[j], proyectos[i]
                 
 def ordenamiento_ss_alf(proyectos):
     long= len(proyectos)
@@ -65,7 +65,7 @@ def ordenamiento_ss_alf(proyectos):
         for j in range(i+1, long):
             if proyectos[i].titulo > proyectos[j].titulo:
                 # Intercambiar
-                proyectos[i].titulo, proyectos[j].titulo = proyectos[j].titulo, proyectos[i].titulo
+                proyectos[i], proyectos[j] = proyectos[j], proyectos[i]
 
 def binary_search(v, x):
 	# busqueda binaria... asume arreglo ordenado...
