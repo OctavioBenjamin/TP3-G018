@@ -14,7 +14,11 @@ lenguajes = ["Python", "Java", "C++", "Javascript", "Shell", "HTML", "Ruby", "Sw
 titulos = ["Game: Dead by daylight", "Game: Phasmophobia", "Game: Grand Theft Auto V", "Game: Call Of Duty Warzone", "Game: Fallout 4", "Software: AutoCad", "Software: Sketchup", "Software: Lumion 3D", "Software: Photoshop", "Software: V-Ray"]
 
 def toString(proyecto):
-    fecha = f"{proyecto.dia}-{proyecto.mes}-{proyecto.año}"
+    if proyecto.año < 10:
+        año =  f"200{proyecto.año}"
+    else:
+        año =  f"20{proyecto.año}"
+    fecha = f"{proyecto.dia}-{proyecto.mes}-{año}"
     return f"Proyecto {proyecto.titulo} | Numero: {proyecto.numero} | Ultima Actualización: {fecha} | Lenguaje: {lenguajes[proyecto.lenguaje]} | Lineas: {proyecto.lineas}"
 
 def numeros_de_proyectos(proyectos):
@@ -48,7 +52,7 @@ def cargar_proyecto(n, proyectos, numeros):
         tit = random.choice(titulos)
         dd_actu = random.randint(1,30)
         mm_actu = random.randint(1, 12) 
-        yy_actu = random.randint(2000, 2022)
+        yy_actu = random.randint(0, 22)
         lenguaje = random.randint(0, 10)
         lineas = random.randint(100, 999)
         # numero, titulo, dia, mes, año, lenguaje, lineas
@@ -140,3 +144,24 @@ def actualizar(proyecto, nuevas_lineas):
     proyecto.mes = random.randint(1, 12)
     proyecto.año = random.randint(2000, 2022)
     proyecto.lineas = nuevas_lineas
+
+def contar_lineas(proyectos):
+    contador = [0]*11
+    for proyecto in proyectos:
+        contador[proyecto.lenguaje] += proyecto.lineas
+    return contador
+
+def mostrar_contador(contador):
+    print(f"""
+    Python:     {contador[0]} lineas
+    Java:       {contador[1]} lineas
+    C++:        {contador[2]} lineas
+    Javascript: {contador[3]} lineas
+    Shell: {contador[4]} lineas
+    HTML: {contador[5]} lineas
+    Ruby: {contador[6]} lineas
+    Swift: {contador[7]} lineas
+    C#: {contador[8]} lineas
+    VB: {contador[9]} lineas
+    Go: {contador[10]} lineas
+    """)
